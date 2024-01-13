@@ -16,5 +16,10 @@ namespace NebimV3Reporter
         {
             InitializeComponent();
         }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }
