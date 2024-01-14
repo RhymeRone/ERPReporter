@@ -1,6 +1,6 @@
 ﻿namespace NebimV3Reporter
 {
-    partial class Form1
+    partial class ReportForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
             this.gridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinDropDownButtonItem = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.ChangeDatabase = new DevExpress.XtraBars.BarButtonItem();
+            this.ResetReports = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.List = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.ConnectionTest = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSkins = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.listeleMusteriler = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl
@@ -58,6 +60,12 @@
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
+            // 
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
@@ -66,13 +74,15 @@
             this.ribbonControl.SearchEditItem,
             this.skinRibbonGalleryBarItem,
             this.skinDropDownButtonItem,
-            this.barButtonItem1,
-            this.barButtonItem2,
+            this.ChangeDatabase,
+            this.ResetReports,
             this.barButtonItem3,
-            this.listeleMusteriler,
-            this.barButtonItem4});
+            this.List,
+            this.barButtonItem4,
+            this.ConnectionTest,
+            this.barButtonItem5});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 7;
+            this.ribbonControl.MaxItemId = 9;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
@@ -89,6 +99,61 @@
             this.skinDropDownButtonItem.Id = 2;
             this.skinDropDownButtonItem.Name = "skinDropDownButtonItem";
             // 
+            // ChangeDatabase
+            // 
+            this.ChangeDatabase.Caption = "Veritabanı Değiştir";
+            this.ChangeDatabase.Id = 2;
+            this.ChangeDatabase.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.ChangeDatabase.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.ChangeDatabase.Name = "ChangeDatabase";
+            // 
+            // ResetReports
+            // 
+            this.ResetReports.Caption = "Raporları Sıfırla";
+            this.ResetReports.Id = 3;
+            this.ResetReports.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.ResetReports.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.ResetReports.Name = "ResetReports";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Listele";
+            this.barButtonItem3.Id = 4;
+            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // List
+            // 
+            this.List.Caption = "Listele";
+            this.List.Id = 5;
+            this.List.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("listeleMusteriler.ImageOptions.Image")));
+            this.List.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("listeleMusteriler.ImageOptions.LargeImage")));
+            this.List.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
+            this.List.Name = "List";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Müşterileri Listele";
+            this.barButtonItem4.Id = 6;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // ConnectionTest
+            // 
+            this.ConnectionTest.Caption = "Bağlantı Testi";
+            this.ConnectionTest.Id = 7;
+            this.ConnectionTest.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ConnectionTest.ImageOptions.Image")));
+            this.ConnectionTest.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ConnectionTest.ImageOptions.LargeImage")));
+            this.ConnectionTest.Name = "ConnectionTest";
+            this.ConnectionTest.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ConnectionTest_ItemClick);
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "barButtonItem5";
+            this.barButtonItem5.Id = 8;
+            this.barButtonItem5.Name = "barButtonItem5";
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -99,77 +164,31 @@
             // 
             // rpgSkins
             // 
-            this.rpgSkins.ItemLinks.Add(this.barButtonItem1);
-            this.rpgSkins.ItemLinks.Add(this.barButtonItem2);
+            this.rpgSkins.ItemLinks.Add(this.ConnectionTest);
+            this.rpgSkins.ItemLinks.Add(this.ChangeDatabase);
+            this.rpgSkins.ItemLinks.Add(this.ResetReports);
             this.rpgSkins.Name = "rpgSkins";
             this.rpgSkins.Text = "Ayarlar";
             // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Veritabanı Değiştir";
-            this.barButtonItem1.Id = 2;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Raporları Sıfırla";
-            this.barButtonItem2.Id = 3;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.listeleMusteriler);
+            this.ribbonPageGroup1.ItemLinks.Add(this.List);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Cariler";
+            this.ribbonPageGroup1.Text = "Genel";
             // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Listele";
-            this.barButtonItem3.Id = 4;
-            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // listeleMusteriler
-            // 
-            this.listeleMusteriler.Caption = "Listele";
-            this.listeleMusteriler.Id = 5;
-            this.listeleMusteriler.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.Image")));
-            this.listeleMusteriler.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem1.ImageOptions.LargeImage")));
-            this.listeleMusteriler.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
-            this.listeleMusteriler.Name = "listeleMusteriler";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "Müşterileri Listele";
-            this.barButtonItem4.Id = 6;
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
-            // 
-            // Form1
+            // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 491);
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.ribbonControl);
-            this.Name = "Form1";
+            this.Name = "ReportForm";
             this.Ribbon = this.ribbonControl;
             this.Text = "Nebim V3 Raporlayıcı";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,11 +203,13 @@
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem ChangeDatabase;
+        private DevExpress.XtraBars.BarButtonItem ResetReports;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarSubItem listeleMusteriler;
+        private DevExpress.XtraBars.BarSubItem List;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem ConnectionTest;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
     }
 }
