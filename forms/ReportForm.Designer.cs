@@ -103,16 +103,16 @@
             // 
             this.ChangeDatabase.Caption = "Veritabanı Değiştir";
             this.ChangeDatabase.Id = 2;
-            this.ChangeDatabase.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.ChangeDatabase.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.ChangeDatabase.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ChangeDatabase.ImageOptions.Image")));
+            this.ChangeDatabase.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ChangeDatabase.ImageOptions.LargeImage")));
             this.ChangeDatabase.Name = "ChangeDatabase";
             // 
             // ResetReports
             // 
             this.ResetReports.Caption = "Raporları Sıfırla";
             this.ResetReports.Id = 3;
-            this.ResetReports.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.ResetReports.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.ResetReports.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ResetReports.ImageOptions.Image")));
+            this.ResetReports.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ResetReports.ImageOptions.LargeImage")));
             this.ResetReports.Name = "ResetReports";
             // 
             // barButtonItem3
@@ -127,8 +127,8 @@
             // 
             this.List.Caption = "Listele";
             this.List.Id = 5;
-            this.List.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("listeleMusteriler.ImageOptions.Image")));
-            this.List.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("listeleMusteriler.ImageOptions.LargeImage")));
+            this.List.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("List.ImageOptions.Image")));
+            this.List.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("List.ImageOptions.LargeImage")));
             this.List.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
             this.List.Name = "List";
@@ -185,7 +185,7 @@
             this.Controls.Add(this.ribbonControl);
             this.Name = "ReportForm";
             this.Ribbon = this.ribbonControl;
-            this.Text = "Nebim V3 Raporlayıcı";
+            this.Text = "TX V3 Raporlayıcı";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
