@@ -13,6 +13,8 @@ namespace NebimV3Reporter.forms
 {
     public partial class LoginPanel : DevExpress.XtraEditors.XtraForm
     {
+        public event EventHandler LoginSuccess;
+
         public LoginPanel()
         {
             InitializeComponent();
@@ -31,12 +33,23 @@ namespace NebimV3Reporter.forms
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (usernameBox.Text == Program.Admin.Username &&
-                passwordBox.Text == Program.Admin.Password)
+            if(AuthenticateUser(usernameBox.Text,passwordBox.Text))
+                OnLoginSuccess(sender, e);
+        }
+
+        protected bool AuthenticateUser(string username, string password)
+        {
+            if (username == Program.Admin.Username &&
+                password == Program.Admin.Password)
             {
-                Application.Run(new DatabaseList());
+                return true;
             }
-            else XtraMessageBox.Show("Kullanıcı Adı / Parola Hatalı","Giriş Yapılamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            XtraMessageBox.Show("Kullanıcı Adı / Parola Hatalı", "Giriş Yapılamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+        protected virtual void OnLoginSuccess(object sender, EventArgs e)
+        {
+            LoginSuccess?.Invoke(this, EventArgs.Empty);
         }
     }
 }

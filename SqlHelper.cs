@@ -76,6 +76,7 @@ namespace NebimV3Reporter
                 }
                 catch (Exception e)
                 {
+
                     XtraMessageBox.Show(e.Message,"Bağlantı Hatası!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }

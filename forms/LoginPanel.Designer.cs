@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPanel));
             this.xtraUserControl1 = new DevExpress.XtraEditors.XtraUserControl();
             this.usernameBox = new DevExpress.XtraEditors.TextEdit();
@@ -36,8 +37,10 @@
             this.passwordBox = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.loginButton = new DevExpress.XtraEditors.SimpleButton();
+            this.databaseListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.usernameBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraUserControl1
@@ -103,13 +106,17 @@
             // 
             this.loginButton.Appearance.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.Appearance.Options.UseFont = true;
-            this.loginButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.loginButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("loginButton.ImageOptions.Image")));
             this.loginButton.Location = new System.Drawing.Point(85, 103);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(131, 40);
             this.loginButton.TabIndex = 7;
             this.loginButton.Text = "Giriş Yap";
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
+            // databaseListBindingSource
+            // 
+            this.databaseListBindingSource.DataSource = typeof(NebimV3Reporter.forms.DatabaseList);
             // 
             // LoginPanel
             // 
@@ -129,6 +136,7 @@
             this.Load += new System.EventHandler(this.LoginPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usernameBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +151,6 @@
         internal DevExpress.XtraEditors.TextEdit passwordBox;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton loginButton;
+        private System.Windows.Forms.BindingSource databaseListBindingSource;
     }
 }

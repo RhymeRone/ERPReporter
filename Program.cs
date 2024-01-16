@@ -10,7 +10,7 @@ namespace NebimV3Reporter
 {
     internal static class Program
     {
-        public static readonly User Admin = new User("Muratkan", "Evkuran123");
+        public static readonly User Admin = new User("", "");
 
         public static SqlHelper.SqlLoginInfo CurrentDBInfo =
             new SqlHelper.SqlLoginInfo("reportadmin", "19339a20", "master");
@@ -27,7 +27,20 @@ namespace NebimV3Reporter
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPanel());
+            InitializeApplication();
+        }
+
+        static void InitializeApplication()
+        {
+            LoginPanel loginPanel = new LoginPanel();
+            loginPanel.LoginSuccess += (sender, e) =>
+            {
+                loginPanel.DialogResult = DialogResult.OK;
+            };
+
+            if (loginPanel.ShowDialog() == DialogResult.OK)
+                if (new DatabaseList().ShowDialog() == DialogResult.OK)
+                    Application.Run(new ReportForm());
         }
     }
 }

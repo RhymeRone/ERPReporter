@@ -16,7 +16,8 @@ namespace NebimV3Reporter.forms
         public DatabaseList()
         {
             InitializeComponent();
-            databaseListBox.DataSource = GetDatabaseList();
+           // databaseListBox.DataSource = GetDatabaseList();
+           databaseListBox.Items.Add("deneme");
         }
 
         private List<string> GetDatabaseList()
@@ -34,7 +35,17 @@ namespace NebimV3Reporter.forms
 
         private void chooseDatabaseBtn_Click(object sender, EventArgs e)
         {
+            SetDatabaseName(databaseListBox.SelectedItems[0].ToString());
+        }
 
+        protected void SetDatabaseName(string databasename)
+        {
+            if (databaseListBox.SelectedItems.Count == 1)
+            {
+                Program.CurrentDBInfo.DatabaseName = databasename;
+                DialogResult = DialogResult.OK;
+            }
+            else XtraMessageBox.Show("Lütfen bir veritabanı seçiniz!", "Veritabanı Seçilmedi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
