@@ -35,10 +35,10 @@ namespace NebimV3Reporter.forms
 
         private void chooseDatabaseBtn_Click(object sender, EventArgs e)
         {
-            SetDatabaseName(databaseListBox.SelectedItems[0].ToString());
+            SetDatabase(databaseListBox.SelectedItems[0].ToString());
         }
 
-        protected void SetDatabaseName(string databasename)
+        protected void SetDatabase(string databasename)
         {
             if (databaseListBox.SelectedItems.Count == 1)
             {

@@ -27,5 +27,14 @@ namespace NebimV3Reporter
                 connection.Disconnect();
             }
         }
+
+        private void ChangeDatabase_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void listeleMusteriler_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+        }
     }
 }

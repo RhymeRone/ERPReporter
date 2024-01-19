@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
+using DevExpress.DashboardCommon;
+using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.UIAutomation;
 using DevExpress.XtraEditors;
 using NebimV3Reporter.forms;
@@ -24,6 +28,8 @@ namespace NebimV3Reporter
         static void Main()
         {
             XtraMessageBox.SmartTextWrap = true; // Messagebox yazılarını kısaltır
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("tr");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
