@@ -45,7 +45,7 @@
             // 
             this.chooseDatabaseBtn.Appearance.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chooseDatabaseBtn.Appearance.Options.UseFont = true;
-            this.chooseDatabaseBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("loginButton.ImageOptions.Image")));
+            this.chooseDatabaseBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("chooseDatabaseBtn.ImageOptions.Image")));
             this.chooseDatabaseBtn.Location = new System.Drawing.Point(62, 208);
             this.chooseDatabaseBtn.Name = "chooseDatabaseBtn";
             this.chooseDatabaseBtn.Size = new System.Drawing.Size(166, 40);
@@ -62,6 +62,7 @@
             this.Controls.Add(this.databaseListBox);
             this.Name = "DatabaseList";
             this.Text = "Veritabanları";
+            this.Load += new System.EventHandler(this.DatabaseList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.databaseListBox)).EndInit();
             this.ResumeLayout(false);
 

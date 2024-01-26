@@ -107,7 +107,7 @@ namespace NebimV3Reporter
 
         public class Data
         {
-            private IConnection _connection;
+            public IConnection _connection;
             public Data(IConnection connection)
             {
                 _connection = connection;

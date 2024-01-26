@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace NebimV3Reporter.forms
 {
-    public partial class Dashboard1 : DevExpress.DashboardCommon.Dashboard
+    public partial class DashboardReport : DevExpress.DashboardCommon.Dashboard
     {
-        public Dashboard1()
+        public DashboardReport()
         {
             InitializeComponent();
         }

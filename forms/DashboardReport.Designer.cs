@@ -1,6 +1,6 @@
 ﻿namespace NebimV3Reporter.forms
 {
-    partial class Dashboard1
+    partial class DashboardReport
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,40 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardReport));
             DevExpress.DashboardCommon.DashboardLayoutGroup dashboardLayoutGroup1 = new DevExpress.DashboardCommon.DashboardLayoutGroup();
             DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem1 = new DevExpress.DashboardCommon.DashboardLayoutItem();
-            this.gridDashboardItem1 = new DevExpress.DashboardCommon.GridDashboardItem();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDashboardItem1)).BeginInit();
+            this.gridView = new DevExpress.DashboardCommon.GridDashboardItem();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
-            // gridDashboardItem1
+            // gridView
             // 
-            this.gridDashboardItem1.ComponentName = "gridDashboardItem1";
-            this.gridDashboardItem1.DataItemRepository.Clear();
-            this.gridDashboardItem1.InteractivityOptions.IgnoreMasterFilters = false;
-            this.gridDashboardItem1.Name = "Grid 1";
-            this.gridDashboardItem1.ShowCaption = true;
+            this.gridView.ColumnFilterOptions.UpdateTotals = true;
+            this.gridView.ComponentName = "gridView";
+            this.gridView.DataItemRepository.Clear();
+            this.gridView.GridOptions.ColumnWidthMode = DevExpress.DashboardCommon.GridColumnWidthMode.AutoFitToContents;
+            this.gridView.GridOptions.EnableBandedRows = true;
+            this.gridView.GridOptions.ShowVerticalLines = false;
+            this.gridView.InteractivityOptions.IgnoreMasterFilters = false;
+            resources.ApplyResources(this.gridView, "gridView");
+            this.gridView.ShowCaption = true;
             // 
-            // Dashboard1
+            // DashboardReport
             // 
             this.Items.AddRange(new DevExpress.DashboardCommon.DashboardItem[] {
-            this.gridDashboardItem1});
-            dashboardLayoutItem1.DashboardItem = this.gridDashboardItem1;
-            dashboardLayoutItem1.Weight = 100D;
+            this.gridView});
+            dashboardLayoutItem1.DashboardItem = this.gridView;
+            dashboardLayoutItem1.Weight = 50.101419878296149D;
             dashboardLayoutGroup1.ChildNodes.AddRange(new DevExpress.DashboardCommon.DashboardLayoutNode[] {
             dashboardLayoutItem1});
             dashboardLayoutGroup1.DashboardItem = null;
             dashboardLayoutGroup1.Orientation = DevExpress.DashboardCommon.DashboardLayoutGroupOrientation.Vertical;
             dashboardLayoutGroup1.Weight = 100D;
             this.LayoutRoot = dashboardLayoutGroup1;
-            this.Title.Text = "Dashboard";
-            ((System.ComponentModel.ISupportInitialize)(this.gridDashboardItem1)).EndInit();
+            this.Title.Text = resources.GetString("DashboardReport.Title.Text");
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
 
         #endregion
 
-        private DevExpress.DashboardCommon.GridDashboardItem gridDashboardItem1;
+        public DevExpress.DashboardCommon.GridDashboardItem gridView;
     }
 }

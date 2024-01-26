@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -14,12 +15,12 @@ namespace NebimV3Reporter
 {
     internal static class Program
     {
-        public static readonly User Admin = new User("", "");
+        public static string DatabaseListCommand =
+            "Select name from sys.databases where name like 'V3%' or name = 'TEST'";
+        public static readonly User Admin = new User("", "master");
 
         public static SqlHelper.SqlLoginInfo CurrentDBInfo =
             new SqlHelper.SqlLoginInfo("reportadmin", "19339a20", "master");
-
-        public static SqlHelper.Data DBContext;
 
         /// <summary>
         /// The main entry point for the application.
@@ -46,7 +47,16 @@ namespace NebimV3Reporter
 
             if (loginPanel.ShowDialog() == DialogResult.OK)
                 if (new DatabaseList().ShowDialog() == DialogResult.OK)
-                    Application.Run(new ReportForm());
+                    Application.Run(new MainForm());
         }
+
+
+        public static void Maintenence()
+        {
+            XtraMessageBox.Show("Burası Bakım Aşamasında!", "Üzgünüz", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+
     }
 }

@@ -106,12 +106,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\Dashboard1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="forms\Dashboard1.Designer.cs">
-      <DependentUpon>Dashboard1.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\DatabaseList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,19 +118,31 @@
     <Compile Include="forms\LoginPanel.Designer.cs">
       <DependentUpon>LoginPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyExtensions.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="forms\ReportForm.cs">
+    <Compile Include="forms\DashboardReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="forms\DashboardReport.Designer.cs">
+      <DependentUpon>DashboardReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ReportDraft.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\ReportForm.Designer.cs">
-      <DependentUpon>ReportForm.cs</DependentUpon>
+    <Compile Include="forms\ReportDraft.Designer.cs">
+      <DependentUpon>ReportDraft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyExtensions.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelper.cs" />
-    <EmbeddedResource Include="forms\Dashboard1.resx">
-      <DependentUpon>Dashboard1.cs</DependentUpon>
+    <EmbeddedResource Include="forms\DashboardReport.tr-TR.resx">
+      <DependentUpon>DashboardReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\DatabaseList.resx">
       <DependentUpon>DatabaseList.cs</DependentUpon>
@@ -144,8 +150,14 @@
     <EmbeddedResource Include="forms\LoginPanel.resx">
       <DependentUpon>LoginPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\ReportForm.resx">
-      <DependentUpon>ReportForm.cs</DependentUpon>
+    <EmbeddedResource Include="forms\DashboardReport.resx">
+      <DependentUpon>DashboardReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ReportDraft.resx">
+      <DependentUpon>ReportDraft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

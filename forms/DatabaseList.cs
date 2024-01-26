@@ -16,21 +16,17 @@ namespace NebimV3Reporter.forms
         public DatabaseList()
         {
             InitializeComponent();
-           // databaseListBox.DataSource = GetDatabaseList();
-           databaseListBox.Items.Add("deneme");
+            databaseListBox.DataSource = GetDatabaseList();
+           // databaseListBox.Items.Add("deneme");
         }
 
         private List<string> GetDatabaseList()
         {
             SqlHelper.SqlLoginInfo loginMasterDBInfo = new SqlHelper.SqlLoginInfo(
                 Program.CurrentDBInfo.SqlUsername, Program.CurrentDBInfo.SqlPassword, "master");
-            Program.DBContext = new SqlHelper.Data(new SqlHelper.Connection(loginMasterDBInfo));
-            if (new SqlHelper.Connection(loginMasterDBInfo).Connect())
-            {
-                DataTable dbListTable = Program.DBContext.GetTable("SELECT name FROM sys.databases");
-                return dbListTable.ToList<string>(0);
-            }
-                return null;
+            SqlHelper.Data dbContext = new SqlHelper.Data(new SqlHelper.Connection(loginMasterDBInfo));
+            DataTable dbListTable = dbContext.GetTable(Program.DatabaseListCommand);
+            return dbListTable.ToList<string>(0);
         }
 
         private void chooseDatabaseBtn_Click(object sender, EventArgs e)
@@ -46,6 +42,11 @@ namespace NebimV3Reporter.forms
                 DialogResult = DialogResult.OK;
             }
             else XtraMessageBox.Show("Lütfen bir veritabanı seçiniz!", "Veritabanı Seçilmedi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void DatabaseList_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
