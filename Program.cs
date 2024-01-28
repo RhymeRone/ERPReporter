@@ -56,7 +56,13 @@ namespace NebimV3Reporter
             XtraMessageBox.Show("Burası Bakım Aşamasında!", "Üzgünüz", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public static void CheckUpdate()
+        {
+            Properties.Settings.Default
+        }
 
 
     }
+
+
 }

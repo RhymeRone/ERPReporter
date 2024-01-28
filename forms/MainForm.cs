@@ -120,6 +120,12 @@ namespace NebimV3Reporter
             ReportDraft reportDraft = new ReportDraft(formName, dbContext.GetTable(sqlCommand), valueBases);
             reportDraft.Show();
         }
+
+        private void btnGuncellemeKontrolü_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UpdateCheck updateCheck = new UpdateCheck();
+            updateCheck.ShowDialog()
+        }
     }
 
 
