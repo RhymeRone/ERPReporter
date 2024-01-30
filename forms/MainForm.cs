@@ -23,17 +23,22 @@ namespace NebimV3Reporter
 
         private void ConnectionTest_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var connection = new SqlHelper.Connection(Program.CurrentDBInfo);
+            SqlHelper.SqlLoginInfo connectLoginInfo = new SqlHelper.SqlLoginInfo(
+                Program.properties.sqlAddress, Program.properties.sqlUsername, Program.properties.sqlPassword,
+                "master");
+            var connection = new SqlHelper.Connection(connectLoginInfo);
             if(connection.Connect())
             {
-                XtraMessageBox.Show("Bağlantı Başarılı");
+                XtraMessageBox.Show("Bağlantı Başarılı", "Bağlantı Testi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 connection.Disconnect();
             }
         }
 
         private void ChangeDatabase_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            new DatabaseList().ShowDialog();
+            DatabaseList databaseList = new DatabaseList();
+            databaseList.databaseListFill();
+            databaseList.ShowDialog();
         }
 
         private void listeleMusteriler_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -116,15 +121,17 @@ namespace NebimV3Reporter
 
         protected void ShowReport(string formName, string sqlCommand, params string[] valueBases)
         {
-            SqlHelper.Data dbContext = new SqlHelper.Data(new SqlHelper.Connection(Program.CurrentDBInfo));
+            SqlHelper.SqlLoginInfo currentDbLoginInfo = new SqlHelper.SqlLoginInfo(
+                Program.properties.sqlAddress, Program.properties.sqlUsername, Program.properties.sqlPassword,
+                Program.properties.sqlCurrentDB);
+            SqlHelper.Data dbContext = new SqlHelper.Data(new SqlHelper.Connection(currentDbLoginInfo));
             ReportDraft reportDraft = new ReportDraft(formName, dbContext.GetTable(sqlCommand), valueBases);
             reportDraft.Show();
         }
 
         private void btnGuncellemeKontrolü_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            UpdateCheck updateCheck = new UpdateCheck();
-            updateCheck.ShowDialog()
+            new UpdateCheck().ShowDialog();
         }
     }
 

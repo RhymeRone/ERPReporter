@@ -25,13 +25,97 @@ namespace NebimV3Reporter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int UpdateAutomatically {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UpdateAutomatically {
             get {
-                return ((int)(this["UpdateAutomatically"]));
+                return ((bool)(this["UpdateAutomatically"]));
             }
             set {
                 this["UpdateAutomatically"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string sqlAddress {
+            get {
+                return ((string)(this["sqlAddress"]));
+            }
+            set {
+                this["sqlAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string sqlUsername {
+            get {
+                return ((string)(this["sqlUsername"]));
+            }
+            set {
+                this["sqlUsername"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string sqlPassword {
+            get {
+                return ((string)(this["sqlPassword"]));
+            }
+            set {
+                this["sqlPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("master")]
+        public string sqlCurrentDB {
+            get {
+                return ((string)(this["sqlCurrentDB"]));
+            }
+            set {
+                this["sqlCurrentDB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Username {
+            get {
+                return ((string)(this["Username"]));
+            }
+            set {
+                this["Username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Password {
+            get {
+                return ((string)(this["Password"]));
+            }
+            set {
+                this["Password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Remember {
+            get {
+                return ((bool)(this["Remember"]));
+            }
+            set {
+                this["Remember"] = value;
             }
         }
     }

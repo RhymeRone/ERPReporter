@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,19 +20,19 @@ namespace NebimV3Reporter.forms
         public LoginPanel()
         {
             InitializeComponent();
+            InitializeSettings();
         }
 
-        private void xtraUserControl1_Load(object sender, EventArgs e)
+        private void InitializeSettings()
         {
-
+            versionLabel.Text = "v" + Assembly.GetExecutingAssembly().GetName().Version;
+            if (Program.properties.Remember)
+            {
+                usernameBox.Text = Program.properties.Username;
+                passwordBox.Text = Program.properties.Password;
+                rememberCheck.Checked = Program.properties.Remember;
+            }
         }
-
-
-        private void LoginPanel_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void loginButton_Click(object sender, EventArgs e)
         {
             if(AuthenticateUser(usernameBox.Text,passwordBox.Text))
@@ -51,5 +53,6 @@ namespace NebimV3Reporter.forms
         {
             LoginSuccess?.Invoke(this, EventArgs.Empty);
         }
+
     }
 }

@@ -65,7 +65,7 @@
             this.CheckControl.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.CheckControl.Properties.Caption = "Program Başlatılırken Güncelleme Kontrolü Yap";
             this.CheckControl.Size = new System.Drawing.Size(273, 20);
-            this.CheckControl.TabIndex = 2;
+            this.CheckControl.TabIndex = 1;
             // 
             // updateButton
             // 
@@ -74,7 +74,7 @@
             this.updateButton.Location = new System.Drawing.Point(123, 119);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(115, 44);
-            this.updateButton.TabIndex = 3;
+            this.updateButton.TabIndex = 2;
             this.updateButton.Text = "Güncelle";
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 

@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+using AutoUpdaterDotNET;
 using DevExpress.DashboardCommon;
 using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.UIAutomation;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using NebimV3Reporter.forms;
+using NebimV3Reporter.Properties;
 
 namespace NebimV3Reporter
 {
@@ -19,8 +23,7 @@ namespace NebimV3Reporter
             "Select name from sys.databases where name like 'V3%' or name = 'TEST'";
         public static readonly User Admin = new User("", "master");
 
-        public static SqlHelper.SqlLoginInfo CurrentDBInfo =
-            new SqlHelper.SqlLoginInfo("reportadmin", "19339a20", "master");
+        public static Settings properties = Settings.Default;
 
         /// <summary>
         /// The main entry point for the application.
@@ -29,20 +32,39 @@ namespace NebimV3Reporter
         static void Main()
         {
             XtraMessageBox.SmartTextWrap = true; // Messagebox yazılarını kısaltır
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr");
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("tr");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr-TR");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
+            Localizer.Active = Localizer.CreateDefaultLocalizer();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            
             InitializeApplication();
         }
 
         static void InitializeApplication()
         {
+            if (Properties.Settings.Default.UpdateAutomatically) CheckUpdate();
+
             LoginPanel loginPanel = new LoginPanel();
             loginPanel.LoginSuccess += (sender, e) =>
             {
                 loginPanel.DialogResult = DialogResult.OK;
+                if (loginPanel.rememberCheck.Checked)
+                {
+                    properties.Username = loginPanel.usernameBox.Text;
+                    properties.Password = loginPanel.passwordBox.Text;
+                    properties.Remember = loginPanel.rememberCheck.Checked;
+                    properties.Save();
+                }
+                else
+                {
+                    properties.Username = "";
+                    properties.Password = "";
+                    properties.Remember = false;
+                    properties.Save();
+                }
             };
 
             if (loginPanel.ShowDialog() == DialogResult.OK)
@@ -57,8 +79,9 @@ namespace NebimV3Reporter
         }
 
         public static void CheckUpdate()
-        {
-            Properties.Settings.Default
+        { 
+            string UpdateInfo = "https://nebimv3reporter.s3.eu-central-1.amazonaws.com/updateinfo.xml";
+            AutoUpdater.Start(UpdateInfo);
         }
 
 

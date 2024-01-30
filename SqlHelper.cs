@@ -16,6 +16,7 @@ namespace NebimV3Reporter
     {
         public interface IDatabaseLoginInfo
         {
+            string SqlAddress { get; set; }
             string SqlUsername { get; set; }
             string SqlPassword { get; set; }
             string DatabaseName { get; set; }
@@ -33,17 +34,20 @@ namespace NebimV3Reporter
 
         public class SqlLoginInfo : IDatabaseLoginInfo
         {
+            private string _sqlAddress;
             private string _sqlUsername;
             private string _sqlPassword;
             private string _databaseName;
 
-            public SqlLoginInfo(string sqlUserName, string sqlPassword, string databaseName)
+            public SqlLoginInfo(string sqlAddress,string sqlUserName, string sqlPassword, string databaseName)
             {
+                _sqlAddress = sqlAddress;
                 _sqlUsername = sqlUserName;
                 _sqlPassword = sqlPassword;
                 _databaseName = databaseName;
             }
 
+            public string SqlAddress { get { return _sqlAddress; } set { _sqlAddress = value; } }
             public string SqlUsername { get { return _sqlUsername; } set { _sqlUsername = value; } }
             public string SqlPassword { get { return _sqlPassword; } set { _sqlPassword = value; } }
             public string DatabaseName { get { return _databaseName; } set { _databaseName = value; } }
@@ -60,7 +64,7 @@ namespace NebimV3Reporter
             public Connection(IDatabaseLoginInfo databaseLoginInfo)
             {
                 _databaseLoginInfo = databaseLoginInfo;
-                _connection = new SqlConnection($"Server=localhost;" +
+                _connection = new SqlConnection($"Server={_databaseLoginInfo.SqlAddress};" +
                                                 $"Database={_databaseLoginInfo.DatabaseName};" +
                                                 $"User ID={_databaseLoginInfo.SqlUsername};" +
                                                 $"Password={_databaseLoginInfo.SqlPassword};");
